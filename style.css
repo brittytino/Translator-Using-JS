@@ -1,0 +1,555 @@
+
+@font-face {
+    font-family: 'Minecraft';
+    src: url('assets/fonts/minecraft-font/MinecraftRegular-Bmg3.otf') format('truetype');
+    font-weight: 1 1000;
+    font-style: oblique 0deg; 
+  }
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+*::selection {
+    background-color: rgba(128, 128, 128, 0);
+}
+
+*::-moz-selection {
+    background: rgba(128, 128, 128, 0);
+}
+ 
+
+* {
+    -webkit-tap-highlight-color: transparent;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+}
+
+html {
+    font-size: 62.5%;
+    scroll-behavior: smooth;
+    font-family: Whitney, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica, Arial, sans-serif;
+    
+}
+
+::-webkit-scrollbar{
+    width: 10px;
+}
+::-webkit-scrollbar-track {
+    background: #00000002;
+}
+::-webkit-scrollbar-thumb{
+   background-color: var(--primary-theme-color);
+   border-radius: 2px;
+
+}
+:root{
+    
+    cursor:default;
+
+    --border-color: #0a0a0a;
+    --nav-color-one: #0d0d179a;
+    --nav-color-two: #000000;
+    --body-color: #000000;
+    --dark-text: #101010;
+    --light-text: #ffffff;
+    --light-text-secondary: #b9b9b9;
+    --light-text-desc: #d8d8d8;
+    --primary-theme-color: #ff7b00;
+    --secondary-theme-color: #ffa600;   
+
+}
+
+body{
+    background-color: var(--body-color);
+    transition: all .3s;
+    position: relative;
+    color: var(--light-text);
+    overflow: hidden;
+}
+.scroll-enable{
+    overflow: unset;
+}
+.lightcolors{
+    --body-color: #ffffff;
+    --dark-text: #fff;
+    --light-text: #080808;
+    --nav-color-two: #f6f6f2;
+    --nav-color-one: #f1f1f17e;
+    --border-color: #ddd;
+    --light-text-secondary: #464853;
+    --light-text-desc: #020202; 
+    
+}
+
+a{
+    text-decoration: none;
+}
+header{
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 9999;
+}
+.navbar{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    height: 65px;
+    background:linear-gradient(to bottom, var(--nav-color-one) , var(--nav-color-two) );
+    padding: 0px 30px;
+    border-bottom: 1px solid var(--border-color);
+    transition: all .3s;
+    backdrop-filter: blur(5px);
+}
+.logo{
+    width: fit-content;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+#logo-text svg path{
+    fill: var(--light-text);
+ 
+}
+.right-nav-button-container{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: fit-content;
+    height: 100%;
+    gap: 20px;
+}
+
+
+#visual-toggle-button{
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    border: 1px solid var(--border-color);
+    border-radius: 5px;
+    cursor: pointer;
+}
+/* checkbox */
+#visual-toggle{
+    appearance: none;
+    display: none;
+}
+.svgIcon-toggle{
+    width: 25px;
+}
+.moon-svg{
+    width: 13px;
+    position: absolute;
+    transition: all .3s;
+}
+.sun-svg{
+    opacity: 0;
+    transition: all .3s;
+}
+.lightmode .sun-svg{
+    transform: rotate(180deg);
+    opacity: 1;
+}
+.lightmode .moon-svg{
+    opacity: 0;
+}
+.animate .moon-svg{
+    transform: rotate(360deg);
+    transition: all .3s;
+}
+
+main{
+    width: 100%;
+    margin-top: 65px;
+    font-family: Whitney, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica, Arial, sans-serif;
+}
+.landingContainer{
+    width: 100%;
+    height: calc(100vh - 65px);
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+}
+.left-container{
+    width: 50%;
+   
+    padding: 80px;
+    flex-direction: column;
+    gap: 30px;
+}
+
+.MainHeading{
+    font-size: 6rem;
+    line-height: 80px;
+    letter-spacing: 0.5px;
+}
+.main-desc{
+    display: flex;
+    font-size: 2rem;
+    color: var(--light-text-secondary);
+    letter-spacing: 0.5px;
+    font-weight: 400;
+
+}
+.main-desc:first-child{
+    font-family: minecraft;
+}
+
+
+  
+  .right-container{
+    height: 100%;
+    width: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+}
+  .right-container img{
+    width: 80%;
+  }
+
+
+
+
+/* responsive code below*/
+@media screen and (max-width:1920px) {
+    html {
+        font-size: 60%;
+    }
+}
+
+@media screen and (max-width:1200px) {
+    html {
+        font-size: 60%;
+    }
+    .download-icon{
+        width: 100%;
+        bottom: 0;
+    }
+}
+
+@media screen and (max-width:998px) {
+    html {
+        font-size: 55%;
+    }
+    main{
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+    }
+    .landingContainer{
+        flex-direction: column;
+        height: fit-content;
+    }
+    .left-container{
+        width: 100%;
+    }
+    .right-container{
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    .right-container img{
+        width: 60%;
+    }
+    .all-icons-wrapper{
+        grid-template-columns: 1fr 1fr 1fr;
+    }
+}
+
+@media screen and (max-width:768px) {
+    html {
+        font-size: 50%;
+    }
+    .left-container{
+        padding: 40px;
+    }
+    .content-container{
+        padding: 40px;
+    }
+ 
+}
+
+@media screen and (max-width:500px) {
+    html {
+        font-size: 45%;  
+    }
+    .star-on-github-button{
+        display: none;
+    }
+    .landingContainer{
+        height: 100vh;
+    }
+    .left-container{
+        padding: 40px;
+        padding-top: 50px;
+        gap: 20px;
+    }
+    .landing-button-container{
+        margin-top: 0;
+    }
+    .right-container{
+        padding: 40px;
+        padding-top: 0;
+        justify-content: flex-start;
+    }
+    .right-container img{
+        width: 100%;
+    }
+    .MainHeading{
+        line-height: unset;
+        font-size: 5rem;
+    }
+    .main-desc{
+        font-size: 1.8rem;
+    }
+    .content-container{
+       margin-top: 50px;
+       padding-bottom: 0;
+    }
+    .Download-button{
+        font-size: 1.8rem;
+        padding: 10px 20px;
+    }
+    .how-to-use-button{
+        font-size: 1.8rem;
+        padding: 10px 20px;
+    }
+
+    .how-to-use ul{
+        gap: 10px;
+        margin-top: 0;
+    }
+    .how-to-use ul li{
+        margin-left: 10px;
+        padding-left: 10px;
+        line-height: 1.6em;
+    }
+    .footerContainer{
+        height: 10vh;
+    }
+    .footerContainer p{
+        font-size: 1.3rem;
+    }
+
+}
+
+@media screen and (max-width:450px) {
+    html {
+        font-size: 43%;
+    }
+    .all-icons-wrapper{
+        grid-template-columns: 1fr 1fr;
+    }
+    .landing-button-container{
+        flex-direction: column;
+        align-items: flex-start;
+    }
+ 
+}
+
+@media screen and (max-width:375px) {
+    html {
+        font-size: 40%;
+    }
+    .all-icons-wrapper{
+        grid-template-columns: 1fr;
+    }
+}
+@media screen and (max-width:300px) {
+    html {
+        font-size: 40%;
+    }
+}
+
+
+/* height media  */
+@media screen and (min-height:700px) {
+    .left-container {
+        justify-content: center;
+    }
+}
+
+
+@media screen and (max-width: 600px) and (min-height: 700px) {
+
+    .left-container {
+        justify-content: center;
+    }
+  
+    .right-container {
+        align-items: flex-start;
+        padding-bottom: 0;
+    }
+
+    .content-container{
+        margin-top: 0;
+    }
+}
+
+/* responsive code above */
+
+/* Import Google Font - Poppins */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+}
+.trans{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 10px;
+  min-height: 10vh;
+ 
+}
+.transcontain2{
+  max-width: 690px;
+  width: 100%;
+  padding: 30px;
+  background: var(--light-text);
+  border-radius: 7px;
+  box-shadow: 0 10px 20px rgba(153, 153, 153, 0.01);
+}
+.wrappert2{
+  border-radius: 5px;
+  border: 1px solid #ccc;
+}
+.wrappert2 .text-inputt2{
+  display: flex;
+  border-bottom: 1px solid #ccc;
+}
+.text-inputt2 .to-text{
+  border-radius: 0px;
+  border-left: 1px solid #ccc;
+}
+.text-inputt2 textarea{
+  height: 250px;
+  width: 100%;
+  border: none;
+  outline: none;
+  resize: none;
+  background: none;
+  font-size: 18px;
+  padding: 10px 15px;
+  border-radius: 5px;
+  color: var(--dark-text);
+}
+.text-inputt2 textarea::placeholder{
+  color:var(--dark-text);
+}
+.controls, li, .iconst2, .iconst2 i{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.controls{
+  list-style: none;
+  padding: 12px 15px;
+}
+.controls .row .iconst2{
+  width: 38%;
+}
+.controls .row .iconst2 i{
+  width: 50px;
+  color: var(--dark-text);
+  font-size: 14px;
+  cursor: pointer;
+  transition: transform 0.2s ease;
+  justify-content: center;
+}
+.controls .row.from .iconst2{
+  padding-right: 15px;
+  border-right: 1px solid #ccc;
+}
+.controls .row.to .iconst2{
+  padding-left: 15px;
+  border-left: 1px solid #ccc;
+}
+.controls .row select{
+  color:var(--dark-text);
+  border: none;
+  outline: none;
+  font-size: 18px;
+  background: none;
+  padding-left: 5px;
+}
+.text-inputt2 textarea::-webkit-scrollbar{
+  width: 4px;
+}
+.controls .row select::-webkit-scrollbar{
+  width: 8px;
+}
+.text-inputt2 textarea::-webkit-scrollbar-track,
+.controls .row select::-webkit-scrollbar-track{
+  background: var(--dark-text);
+}
+.text-inputt2 textarea::-webkit-scrollbar-thumb{
+  background: var(--dark-text);
+  border-radius: 8px;
+}
+.controls .row select::-webkit-scrollbar-thumb{
+  background:var(--dark-text);
+  border-radius: 8px;
+  border-right: 2px solid var(--dark-text);
+}
+.controls .exchange{
+  color: var(--dark-text);
+  cursor: pointer;
+  font-size: 16px;
+  transition: transform 0.2s ease;
+}
+.controls i:active{
+  transform: scale(0.9);
+}
+.transcontain2 button{
+  width: 100%;
+  padding: 14px;
+  outline: none;
+  border: none;
+  color: var(--dark-text);
+  cursor: pointer;
+  margin-top: 20px;
+  font-size: 17px;
+  border-radius: 5px;
+  background: #ffae00;
+}
+
+@media (max-width: 660px){
+  .transcontain2{
+    padding: 20px;
+  }
+  .wrappert2 .text-inputt2{
+    flex-direction: column;
+  }
+  .text-inputt2 .to-text{
+    border-left: 0px;
+    border-top: 1px solid var(--dark-text);
+  }
+  .text-inputt2 textarea{
+    height: 200px;
+  }
+  .controls .row .iconst2{
+    display: none;
+  }
+  .transcontain2 button{
+    padding: 13px;
+    font-size: 16px;
+  }
+  .controls .row select{
+    font-size: 16px;
+  }
+  .controls .exchange{
+    font-size: 14px;
+  }
+}
