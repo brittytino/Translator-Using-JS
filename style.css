@@ -202,8 +202,47 @@ main{
     font-family: minecraft;
 }
 
-
+.star-on-github-button{
+    width: fit-content;
+    height: 40px;
+    border-radius: 10px;
+    color: var(--light-text);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.6rem;
+    padding: 0px 20px;
+    gap: 10px;
+    font-weight: 500;
+    transition: all .3s;
+}
+.star-on-github-button svg{
+    width: 1.6rem;
+}
+.star-on-github-button svg path{
+    fill: var(--light-text-secondary);
+}
+.star-on-github-button:hover{
+    color: var(--primary-theme-color)
+}
   
+.how-to-use-button2{
+    font-size: 2rem;
+    width: 180px;
+    height: fit-content;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 15px 30px;
+    border: 1px solid var(--border-color);
+    color: var(--light-text);
+    font-weight: 500;
+    background-color: var(--body-color);
+    transition: all .3s;
+    filter: invert(1);
+}
+
   .right-container{
     height: 100%;
     width: 50%;
