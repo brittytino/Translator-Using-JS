@@ -509,14 +509,14 @@ main{
 }
 .controls .row.from .iconst2{
   padding-right: 15px;
-  border-right: 1px solid #ccc;
+  border-right: 1px solid #666666;
 }
 .controls .row.to .iconst2{
   padding-left: 15px;
-  border-left: 1px solid #ccc;
+  border-left: 1px solid #666666;
 }
 .controls .row select{
-  color:var(--dark-text);
+  color:#666666;
   border: none;
   outline: none;
   font-size: 18px;
